@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ./config/helpers
+remove_mobileconfig && printf "All gone.\n"

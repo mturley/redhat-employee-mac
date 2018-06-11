@@ -1,0 +1,54 @@
+#!/bin/bash
+
+pinfile="config/kerberos_pin.conf"
+mc_template="config/redhat-wifi.mobileconfig.template"
+mc_target="config/generated/redhat-wifi.mobileconfig"
+
+explain_prompt() {
+  prompt="Please enter $1 ($2): "
+  # $1 <- "your X", "the Y"
+  # $2 <- "x", "y"
+  if [ "$3" == "-s" ]; then
+    read -sp "$prompt" val
+  else
+    read -p "$prompt" val
+  fi
+  echo -n $val
+  >&2 printf "\n"
+}
+
+config_not_found() {
+  path=$(pwd)
+  >&2 printf "\n[ No $2 is configured ]"
+  >&2 printf "\n[ You can fix this in $path/$pinfile ]\n\n"
+  echo -n $(explain_prompt "$1" "$2" $3)
+}
+
+config() {
+  # Adapted from https://unix.stackexchange.com/a/206216/193397
+  key_eq_val=$(grep -E "^$1=" $pinfile 2>/dev/null || echo "$1=__DEFAULT__")
+  val=$(echo $key_eq_val | head -n 1 | cut -d '=' -f 2-)
+
+  if [[ $val == __DEFAULT__ ]]
+  then
+    case $1 in
+      pin)
+        config_not_found "the Thing You Know" "pin" -s
+        ;;
+    esac
+  else
+    echo -n $val
+  fi
+}
+
+generate_mobileconfig() {
+  sed "s/__USERNAME__/$1/" $mc_template > $mc_target
+}
+
+import_mobileconfig() {
+  /usr/bin/profiles -I -F $mc_target
+}
+
+remove_mobileconfig() {
+  /usr/bin/profiles remove -identifier mturley/redhat-wifi
+}

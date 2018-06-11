@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source ./config/helpers
+username=$(explain_prompt "your Red Hat SSO / Kerberos ID" "username")
+
+printf "First we will remove Red Hat from your preferred networks, just in case...\n"
+# Remove Red Hat from remembered networks
+# (networksetup is a macOS built in command)
+networksetup -removepreferredwirelessnetwork en0 "Red Hat"
+
+printf "\nInstalling a new \"Red Hat\" Wi-Fi profile... "
+
+# Install the new Wi-Fi Profile
+generate_mobileconfig $username
+import_mobileconfig
+
+printf "Done."
+printf "\nYour system will now remember your username without remembering your OTP token.\n"
+printf "\nTo connect now, run the ./connect script from this repo.\n"

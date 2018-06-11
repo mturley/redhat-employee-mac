@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DurationUntilRemoval</key>
+	<integer>86400</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>AutoJoin</key>
+			<false/>
+			<key>CaptiveBypass</key>
+			<false/>
+			<key>EAPClientConfiguration</key>
+			<dict>
+				<key>AcceptEAPTypes</key>
+				<array>
+					<integer>25</integer>
+				</array>
+				<key>OneTimeUserPassword</key>
+				<true/>
+				<key>TLSMaximumVersion</key>
+				<string>1.0</string>
+				<key>TLSMinimumVersion</key>
+				<string>1.0</string>
+				<key>UserName</key>
+				<string>__USERNAME__</string>
+			</dict>
+			<key>EncryptionType</key>
+			<string>WPA2</string>
+			<key>HIDDEN_NETWORK</key>
+			<false/>
+			<key>IsHotspot</key>
+			<false/>
+			<key>PayloadDescription</key>
+			<string>Configures Wi-Fi settings</string>
+			<key>PayloadDisplayName</key>
+			<string>Wi-Fi</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.wifi.managed.CB15C1BC-2253-4BE4-A3F2-BF217A636C3F</string>
+			<key>PayloadType</key>
+			<string>com.apple.wifi.managed</string>
+			<key>PayloadUUID</key>
+			<string>CB15C1BC-2253-4BE4-A3F2-BF217A636C3F</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>ProxyType</key>
+			<string>None</string>
+			<key>SSID_STR</key>
+			<string>Red Hat</string>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>Red Hat Wi-Fi</string>
+	<key>PayloadIdentifier</key>
+	<string>mturley/redhat-wifi</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>8A793E96-0C2E-4D2A-9B5D-CE0D22E68CEE</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

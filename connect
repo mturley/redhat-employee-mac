@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source ./config/helpers
+pin=$(config pin)
+token=$(explain_prompt "your OTP token" "or activate your yubikey now" -s)
+
+printf "\nConnecting... "
+networksetup -setairportnetwork en0 "Red Hat" "$pin$token"
+
+printf "\nRenewing DHCP Lease... [sudo] "
+sudo ipconfig set en0 DHCP
+
+printf "\nDone!"
