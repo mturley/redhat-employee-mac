@@ -47,7 +47,7 @@
 	<key>PayloadDisplayName</key>
 	<string>Red Hat Wi-Fi</string>
 	<key>PayloadIdentifier</key>
-	<string>mturley/redhat-wifi</string>
+	<string>redhat-mac-wifi-profile</string>
 	<key>PayloadRemovalDisallowed</key>
 	<false/>
 	<key>PayloadType</key>

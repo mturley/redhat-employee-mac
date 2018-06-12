@@ -1,6 +1,8 @@
 #!/bin/bash
 
+WD=`pwd`; SCRIPT=`realpath $0`; cd `dirname $SCRIPT`
 source ./config/helpers
+
 username=$(explain_prompt "your Red Hat SSO / Kerberos ID" "username")
 
 wifi_off
@@ -16,5 +18,8 @@ printf "\n"
 wifi_on
 printf "Done!\n"
 
-printf "\nMac OS will now remember your username without remembering your OTP token! 🎉\n"
-printf "\nAuto-join is enabled.\nYour system will now try to connect to wi-fi.\n"
+printf "\nYour Mac will now remember your username without remembering your OTP token! 🎉\n"
+printf "\nAuto-join is enabled."
+printf "\nIf you are at the office, your system should now try to connect to wi-fi.\n"
+
+cd $WD

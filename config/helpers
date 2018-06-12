@@ -21,7 +21,7 @@ import_mobileconfig() {
 }
 
 remove_mobileconfig() {
-  /usr/bin/profiles remove -identifier mturley/redhat-wifi
+  /usr/bin/profiles remove -identifier redhat-mac-wifi-profile
 }
 
 wifi_off() {
