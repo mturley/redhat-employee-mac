@@ -36,7 +36,13 @@ git clone https://github.com/mturley/redhat-mac-wifi.git
 redhat-mac-wifi/setup
 ```
 
-You will be prompted for your sudo password by the terminal (to toggle your wifi power), and then by a system GUI (to apply the network profile). When the script is done, you'll be prompted for your wifi password, and the checkbox for "Remember this information" will be gone.
+![Setup Script Output](https://raw.githubusercontent.com/mturley/redhat-mac-wifi/master/screenshots/setup.png)
+
+You will be prompted for your sudo password by the terminal, to toggle your wifi power. Then, you'll get a GUI password prompt from "Profiles/MDM" (which stands for 'Multi-Device Manager', that's Apple Configurator's service) to apply the new profile.
+
+![MDM Password Prompt](https://raw.githubusercontent.com/mturley/redhat-mac-wifi/master/screenshots/MDM-password-prompt.png)
+
+When the script is done, you'll be prompted for your wifi password, and the checkbox for "Remember this information" will be gone.
 
 ## Removal
 
@@ -46,7 +52,9 @@ Easy peasy.
 redhat-mac-wifi/remove
 ```
 
-Thanks to Apple Configurator, it's a clean removal; no trace will be left behind and your settings will be fine.
+![Removal Script Output](https://raw.githubusercontent.com/mturley/redhat-mac-wifi/master/screenshots/remove.png)
+
+Thanks to Configurator and MDM, it's a clean removal; no trace will be left behind and your settings will be fine.
 
 You'll be asked for both admin passwords again, to toggle the wifi and modify your profiles once more. When the script is done, you can try to reconnect to the Red Hat wifi and you should see your "Remember this information" checkbox appear again.
 
