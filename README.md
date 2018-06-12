@@ -12,7 +12,7 @@ Take a look at the [redhat-wifi.mobileconfig.template](https://github.com/mturle
 
 Noteworthy properties of this special network profile:
 
-* `OneTimeUserPassword` is turned on. **The OS will not offer to remember your Red Hat wifi password, ever again.**
+* `OneTimeUserPassword` is turned on. **The OS will not offer to remember your Red Hat wifi password, ever again.** It's one less risky checkbox on your screen.
 * `AutoJoin` is turned on. This is normally undesirable for Red Hat wifi because if your Mac remembers your (one-time) password, failed auto-joins will end up locking you out of the network. **Now auto-join is helpful again!** You will get a friendly password prompt when the network is detected.
   * If you don't want this feature, that's easy to fix: before you run `setup`, edit the `redhat-wifi.mobileconfig.template` file and change `AutoJoin`'s value from `true` to `false`.
 * `UserName` will be set explicitly to your username, which the `setup` script will prompt you to type. I want to be asked for my password every time, but I don't need to enter my username every time.
