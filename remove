@@ -1,4 +1,12 @@
 #!/bin/bash
 
 source ./config/helpers
+
+wifi_off
+
+printf "\nRemoving the \"Red Hat\" Wi-Fi Profile... "
 remove_mobileconfig && printf "All gone.\n"
+
+wifi_on
+
+printf "Done!\n"
