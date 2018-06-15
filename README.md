@@ -33,10 +33,13 @@ Eventually I'll put this into a `brew` tap or something, but for now you can ins
 
 ```bash
 git clone https://github.com/mturley/redhat-mac-wifi.git
-redhat-mac-wifi/setup
+cd redhat-mac-wifi
+./setup
 ```
 
 ![Setup Script Output](https://raw.githubusercontent.com/mturley/redhat-mac-wifi/master/screenshots/setup.png)
+
+(note-- in this screenshot it is not being run from the root of the repo-- this used to be supported, but due to `realpath` not being available on every Mac, I removed that feature. You must run this script from the root of the git repo)
 
 You will be prompted for your sudo password by the terminal, to toggle your wifi power. Then, you'll get a GUI password prompt from "Profiles/MDM" (which stands for 'Multi-Device Manager', that's Apple Configurator's service) to apply the new profile.
 

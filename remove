@@ -1,6 +1,5 @@
 #!/bin/bash
 
-WD=`pwd`; SCRIPT=`realpath $0`; cd `dirname $SCRIPT`
 source ./config/helpers
 
 wifi_off
@@ -11,5 +10,3 @@ remove_mobileconfig && printf "All gone.\n"
 wifi_on
 
 printf "Done!\n"
-
-cd $WD
