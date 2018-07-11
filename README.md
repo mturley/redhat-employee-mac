@@ -1,12 +1,25 @@
-# redhat-mac-wifi
+# redhat-employee-mac-tools
 
-Forces macOS to stop trying to remember your OTP token password for the corporate wifi.
+Tools to help Red Hat employees get started quickly on a new MacBook Pro, or more easily manage the one they have.
 
 ## For Red Hat Employees
 
-This repo doesn't contain anything sensitive, but it won't be useful to you unless you have credentials for the Red Hat wifi network at a Red Hat office building.
+This repo doesn't contain anything sensitive, but it won't be useful to you unless you have credentials for the Red Hat wifi network at a Red Hat office building, and you use a Mac that was configured by Red Hat IT.
 
 ## What does it do?
+
+They say that necessity is the mother of invention. This repo fixes a few tiny things that I found annoying about the Mac as given to me by Red Hat. I take no responsibility for others using these tools on their Macs. Please use my tools at your own risk and consult your manager before you use any of the more destructive tools (removing Kaspersky, etc). See the disclaimers on each tool.
+
+### The Tools
+
+* Wi-Fi Setup Tool
+* BigFix Removal Tool
+* Kaspersky Removal Tool
+* Whatever else I end up throwing in here in the future.
+
+#### Wi-Fi Setup Tool
+
+This tool removes some of the options from your Mac's Wi-Fi settings for the Red Hat and Red Hat Guest networks. Specifically, it removes Red Hat Guest from your preferred networks, and removes the ability to remember the Red Hat network password (since it contains an OTP token and this feature is just annoying). It also turns on auto-join: when you are in range of Red Hat wifi you will be prompted for your PIN+Token with no "remember this" checkbox.
 
 Take a look at the [redhat-wifi.mobileconfig.template](https://github.com/mturley/redhat-mac-wifi/blob/master/config/redhat-wifi.mobileconfig.template) file. That pile of XML was exported by [Apple Configurator 2](https://itunes.apple.com/us/app/apple-configurator-2/id1037126344?mt=12). It's a `mobileconfig` file which defines a Wi-Fi network profile for your Mac, including some settings not available via System Preferences.
 
@@ -25,21 +38,21 @@ It's simple, but effective... I no longer fuss with my wi-fi every morning.
 
 *Note: This profile only affects wifi networks with the SSID "Red Hat". Unless you name your home wifi "Red Hat", your Mac will still remember the password for it.*
 
-## Setup
+#### Setup
 
 Eventually I'll put this into a `brew` tap or something, but for now you can install the profile by cloning this repo and running a script.
 
 **To install your new and improved Red Hat wifi profile:**
 
 ```bash
-git clone https://github.com/mturley/redhat-mac-wifi.git
-cd redhat-mac-wifi
-./setup
+git clone https://github.com/mturley/redhat-employee-mac-tools.git
+cd redhat-employee-mac-tools
+./setup-wifi
 ```
 
 ![Setup Script Output](https://raw.githubusercontent.com/mturley/redhat-mac-wifi/master/screenshots/setup.png)
 
-(note-- in this screenshot it is not being run from the root of the repo-- this used to be supported, but due to `realpath` not being available on every Mac, I removed that feature. You must run this script from the root of the git repo)
+(note-- this screenshot is out of date. Also, in this screenshot it is not being run from the root of the repo-- this used to be supported, but due to `realpath` not being available on every Mac, **I removed that feature. You must run this script from the root of the git repo.**)
 
 You will be prompted for your sudo password by the terminal, to toggle your wifi power. Then, you'll get a GUI password prompt from "Profiles/MDM" (which stands for 'Multi-Device Manager', that's Apple Configurator's service) to apply the new profile.
 
@@ -47,15 +60,18 @@ You will be prompted for your sudo password by the terminal, to toggle your wifi
 
 When the script is done, you'll be prompted for your wifi password, and the checkbox for "Remember this information" will be gone.
 
-## Removal
+#### Removal
 
 Easy peasy.
 
 ```bash
-redhat-mac-wifi/remove
+cd redhat-employee-mac-tools
+./undo-setup-wifi
 ```
 
 ![Removal Script Output](https://raw.githubusercontent.com/mturley/redhat-mac-wifi/master/screenshots/remove.png)
+
+(note-- this screenshot is out of date.)
 
 Thanks to Configurator and MDM, it's a clean removal; no trace will be left behind and your settings will be fine.
 
