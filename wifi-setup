@@ -6,8 +6,9 @@ username=$(explain_prompt "your Red Hat SSO / Kerberos ID" "username")
 
 wifi_off
 
-printf "\nRemoving Red Hat from your preferred networks, just in case...\n"
+printf "\nRemoving \"Red Hat\" and \"Red Hat Guest\" from your preferred networks...\n"
 networksetup -removepreferredwirelessnetwork en0 "Red Hat"
+networksetup -removepreferredwirelessnetwork en0 "Red Hat Guest"
 
 printf "\nInstalling a new \"Red Hat\" Wi-Fi profile... "
 generate_mobileconfig $username
@@ -20,3 +21,4 @@ printf "Done!\n"
 printf "\nYour Mac will now remember your username without remembering your OTP token! 🎉\n"
 printf "\nAuto-join is enabled."
 printf "\nIf you are at the office, your system should now try to connect to wi-fi.\n"
+printf "\n\nIf you would like to remove your new Wi-Fi profile, you can run ./undo-wifi-setup."
