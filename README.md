@@ -1,4 +1,4 @@
-# redhat-employee-mac-tools
+# redhat-employee-mac
 
 Tools to help Red Hat employees get started quickly on a new MacBook Pro, or more easily manage the one they have.
 
