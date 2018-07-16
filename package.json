@@ -1,0 +1,19 @@
+{
+  "name": "redhat-employee-mac",
+  "version": "1.0.0",
+  "description": "Tools to help Red Hat employees get started quickly on a new MacBook Pro, or more easily manage the one they have.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mturley/redhat-employee-mac.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mturley/redhat-employee-mac/issues"
+  },
+  "homepage": "https://github.com/mturley/redhat-employee-mac#readme"
+}
